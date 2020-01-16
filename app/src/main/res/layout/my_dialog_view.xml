@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:background="#1E7221"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/alldialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="说明"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:id="@+id/alldialog_close"
+            android:src="@drawable/alldialog_close"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+
+    <TextView
+
+        android:id="@+id/alldialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:lineSpacingMultiplier="1.4"
+        android:text=" ADJ-GRADED (个人或国家)持中立态度的，中立的，无倾向性的
+If a person or country adopts a neutral position or remains neutral, they do not support anyone in a disagreement, war, or contest. " />
+
+
+</RelativeLayout>
