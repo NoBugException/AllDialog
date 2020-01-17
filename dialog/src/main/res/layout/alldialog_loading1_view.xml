@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_alldialog_loading1"
+    android:background="@drawable/alldialog_loading1_bg"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/iv_loading"
+        android:src="@drawable/alldialog_loading1_gif"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/loading_msg"
+        android:text="加载中..."
+        android:textColor="#ffffff"
+        android:layout_marginTop="20dp"
+        android:maxLines="1"
+        android:textSize="12sp"
+        android:ellipsize="end"
+        android:maxWidth="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

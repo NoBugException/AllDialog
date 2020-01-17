@@ -1,18 +1,16 @@
 package com.zyc.alldialog;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.zyc.dialog.AllDialog;
+import com.zyc.dialog.bean.LoadingBean;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -48,32 +46,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 AllDialog.with(this)
                         .buildDialog(true, R.style.style_all_dialog, null, null)
-                        .setWidth(250)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
                         .addView(view)
+                        .setWidth(250)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
                         .show();
-
-//                AllDialog.with(this)
-//                        .buildDialog("标题", "文本展示！文本展示！文本展示！文本展示！文本展示！文本展示！")
-//                        .setNegativeButton("取消", null)
-//                        .setPositiveButton("确定",null)
-//                        .setNeutralButton("评价", null)
-//                        .setCancelable(false)
-//                        .create()
-//                        .show();
 
                 break;
 
             case R.id.button_2:
-//                final String[] items_2 =new String[]{"鸭血粉丝","大煮干丝","西红柿鸡蛋汤","王八汤"};
-//                AllDialog.with(this)
-//                        .buildDialog("请问您要点什么", "")
-//                        .setNegativeButton("取消", null)
-//                        .setCancelable(false)
-//                        .setSingleChoiceItems(items_2, 1, null)
-//                        .create()
-//                        .show();
-//
-//                break;
+
+                LoadingBean loadingBean = new LoadingBean();
+                loadingBean.setRadii(6);
+                loadingBean.setText("请稍等...");
+                loadingBean.setTextColor(Color.parseColor("#FFFFFF"));
+
+                AllDialog.with(this)
+                        .buildLoadingDialog(loadingBean, null, null)
+                        .setWidth(100)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
+                        .setHeight(100)//对话框高度，单位为dp
+                        .show();
+
+                break;
 
             case R.id.button_3:
 

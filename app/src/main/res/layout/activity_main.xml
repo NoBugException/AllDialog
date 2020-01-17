@@ -12,28 +12,28 @@
         android:id="@+id/button_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="AlertDialog默认样式" />
+        android:textSize="14sp"
+        android:text="AlertDialog基本封装" />
 
     <Button
         android:id="@+id/button_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="AlertDialog默认单选样式" />
+        android:textSize="14sp"
+        android:text="AlertDialog加载进度" />
 
     <Button
         android:id="@+id/button_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:text="AlertDialog默认多选样式" />
 
     <Button
         android:id="@+id/button_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:text="普通自定义布局" />
 
 </LinearLayout>

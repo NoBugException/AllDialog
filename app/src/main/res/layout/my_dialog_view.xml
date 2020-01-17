@@ -22,7 +22,7 @@
 
         <ImageView
             android:id="@+id/alldialog_close"
-            android:src="@drawable/alldialog_close"
+            android:src="@drawable/alldialog_normal_close"
             android:layout_marginRight="20dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
