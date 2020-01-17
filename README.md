@@ -82,3 +82,45 @@
 
 ![image_2.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_2.png)
 
+
+# v1.2.1
+
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.2.1'
+    }
+    
+
+
+修改内容：
+
+    （1）新增白色背景的加载对话框
+
+
+代码示例：
+
+                LoadingBean loadingBean3 = new LoadingBean();
+                loadingBean3.setRadii(6);
+                loadingBean3.setText("请稍等...");
+                loadingBean3.setTextColor(Color.parseColor("#7700CE"));
+                loadingBean3.setType((byte) 1);
+
+                AllDialog.with(this)
+                        .buildLoadingDialog(loadingBean3, null, null)
+                        //.setWidth(150)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
+                        //.setHeight(150)//对话框高度，单位为dp
+                        .show();
+                        
+效果如下：
+
+![image_3.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_3.png)
+
+
