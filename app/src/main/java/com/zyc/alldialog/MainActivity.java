@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .buildLoadingDialog(loadingBean3, null, null)
                         //.setWidth(150)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
                         //.setHeight(150)//对话框高度，单位为dp
+                        .setDimAmount(0)//设置对话框背景灰暗程度
+                        .gravity(Gravity.BOTTOM, 0, 100)//方位
                         .show();
 
                 break;

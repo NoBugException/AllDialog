@@ -7,8 +7,10 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import com.zyc.dialog.bean.LoadingBean;
+
+import java.util.jar.Attributes;
 
 public class AllDialog{
 
@@ -286,5 +290,48 @@ public class AllDialog{
         rootView.getLayoutParams().height = height;
         return AllDialogHolder.instance;
     }
+
+    /**
+     * 设置对话框背景灰暗程度
+     * @param amount 取值范围是[0,1]，0：不灰暗  1：完全灰暗
+     * @return
+     */
+    public AllDialog setDimAmount(float amount){
+
+        if(alertDialog == null){
+            throw new RuntimeException("dialog is not create!");
+        }
+
+        //设置对话框背景灰暗程度
+        alertDialog.getWindow().setDimAmount(amount);
+        return AllDialogHolder.instance;
+    }
+
+    /**
+     * 设置方位
+     * @param gravity 方位
+     * @param xOffset x轴方向的偏移量
+     * @param yOffset y轴方向的便宜量
+     * @return
+     */
+    public AllDialog gravity(int gravity, int xOffset, int yOffset){
+
+        if(alertDialog == null){
+            throw new RuntimeException("dialog is not create!");
+        }
+
+        WindowManager.LayoutParams params = alertDialog.getWindow().getAttributes();
+        //方位
+        params.gravity = gravity;
+        //x轴方向的偏移量
+        params.x = xOffset;
+        //y轴方向的便宜量
+        params.y = yOffset;
+        alertDialog.getWindow().setAttributes(params);
+
+        return AllDialogHolder.instance;
+    }
+
+
 
 }
