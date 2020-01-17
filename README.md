@@ -42,3 +42,43 @@
 效果如下：
 
 ![image_1.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_1.png)
+
+# v1.1.1
+
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.1.1'
+    }
+    
+
+
+修改内容：
+
+    （1）新增黑色半透明背景的转圈对话框
+    （2）基本封装下新增设置高度；
+
+
+代码示例：
+
+                LoadingBean loadingBean = new LoadingBean();
+                loadingBean.setRadii(6);
+                loadingBean.setText("请稍等...");
+                loadingBean.setTextColor(Color.parseColor("#FFFFFF"));
+
+                AllDialog.with(this)
+                        .buildLoadingDialog(loadingBean, null, null)
+                        .setWidth(100)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
+                        .setHeight(100)//对话框高度，单位为dp
+                        .show();
+效果如下：
+
+![image_2.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_2.png)
+
