@@ -158,4 +158,59 @@
                         .show();
                         
 
+# v1.3.3
+
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.3.3'
+    }
+    
+
+
+
+新增一个普通对话框
+
+    （1）可以配置标题文本，标题颜色，标题文本大小；
+    （2）可以配置正文内容，文本文字颜色，正文文本大小；
+    （3）可以配置按钮文本大小；
+    （4）按钮监听回调；
+
+
+代码示例：
+
+                NormalBean normalBean = new NormalBean();
+                normalBean.setTitle("中国大陆");
+                normalBean.setMessage("西方学者曾多次断言：中国遇到的一个长期问题就是养活不了占世界近20%的人口事实证明新中国成立以来勤劳的中国人");
+                normalBean.setTitleColor(Color.parseColor("#1233F0"));
+                normalBean.setMessageColor(Color.parseColor("#2C9AA8"));
+                normalBean.setTitleTextSize(17);
+                normalBean.setMessageTextSize(14);
+                normalBean.setButtonTextSize(14);
+                AllDialog.with(this)
+                        .buildNormalDialog(normalBean, new ButtonListener() {
+                            @Override
+                            public void confirm() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+
+                            @Override
+                            public void cancel() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+                        }, null, null)
+                        .show();
+
+
+效果如下：
+
+![image_4.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_4.gif)
+
 
