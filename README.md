@@ -124,3 +124,38 @@
 ![image_3.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_3.png)
 
 
+# v1.2.2
+
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.2.2'
+    }
+    
+
+
+修改内容：
+
+    （1）新增对话框灰色背景灰暗程度的参数设置；
+    （2）新增对话框方位的设置；
+
+
+代码示例：
+
+                AllDialog.with(this)
+                        .buildLoadingDialog(loadingBean3, null, null)
+                        //.setWidth(150)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
+                        //.setHeight(150)//对话框高度，单位为dp
+                        .setDimAmount(0)//设置对话框背景灰暗程度
+                        .gravity(Gravity.BOTTOM, 0, 100)//方位
+                        .show();
+                        
+
+
