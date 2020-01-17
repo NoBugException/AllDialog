@@ -19,6 +19,11 @@ import com.zyc.dialog.bean.LoadingBean;
 
 public class AllDialog{
 
+    public static class DialogType{
+        public static final byte DIALOG_TYPE_0 = 0;
+        public static final byte DIALOG_TYPE_1 = 1;
+    }
+
     private static Context mContext;
     private AlertDialog alertDialog;
     private AlertDialog.Builder builder;
@@ -70,7 +75,7 @@ public class AllDialog{
     }
 
     /**
-     * 建一个进度条对话框
+     * 进度条对话框(黑色透明背景，旋转动画)
      */
     public AllDialog buildLoadingDialog(LoadingBean loadingBean, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
         builder = createBuilder(R.style.style_all_dialog);
@@ -85,33 +90,59 @@ public class AllDialog{
             throw new RuntimeException("dialog is not create!");
         }
 
-        //设置对话框背景灰暗程度
-        alertDialog.getWindow().setDimAmount(0);
-
         if(rootView == null){
             throw new RuntimeException("rootView is null!");
         }
 
-//        rootView.getLayoutParams().
-
         //设置根容器为透明
         rootView.setBackgroundColor(Color.parseColor("#00ffffff"));
-        View view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_loading1_view, null);
-        LinearLayout loading1_rootview = view.findViewById(R.id.ll_alldialog_loading1);
-        GradientDrawable gradientDrawable = (GradientDrawable) loading1_rootview.getBackground();
-        gradientDrawable.setColor(loadingBean.getBgColor() == 0 ? Color.parseColor("#99000000") : loadingBean.getBgColor());
-        gradientDrawable.setCornerRadius(loadingBean.getRadii());
-        ImageView imageView = view.findViewById(R.id.iv_loading);
-        AnimationDrawable animationDrawable = (AnimationDrawable)imageView.getDrawable();
-        //播放动画
-        animationDrawable.start();
-        TextView textView = view.findViewById(R.id.loading_msg);
-        if(TextUtils.isEmpty(loadingBean.getText())){
-            textView.setVisibility(View.GONE);
-        }else{
-            textView.setText(loadingBean.getText());
-            textView.setTextColor(loadingBean.getTextColor() == 0 ? Color.parseColor("#FFFFFF") : loadingBean.getTextColor());
+
+        View view = null;
+
+        switch (loadingBean.getType()){
+            case DialogType.DIALOG_TYPE_0:
+
+                //设置对话框背景灰暗程度
+                alertDialog.getWindow().setDimAmount(0);
+
+                view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_loading1_view, null);
+                LinearLayout loading1_rootview = view.findViewById(R.id.ll_alldialog_loading1);
+                GradientDrawable gradientDrawable1 = (GradientDrawable) loading1_rootview.getBackground();
+                gradientDrawable1.setColor(loadingBean.getBgColor() == 0 ? Color.parseColor("#99000000") : loadingBean.getBgColor());
+                gradientDrawable1.setCornerRadius(loadingBean.getRadii());
+                ImageView imageView1 = view.findViewById(R.id.iv_loading);
+                AnimationDrawable animationDrawable = (AnimationDrawable)imageView1.getDrawable();
+                //播放动画
+                animationDrawable.start();
+                TextView textView1 = view.findViewById(R.id.loading_msg);
+                if(TextUtils.isEmpty(loadingBean.getText())){
+                    textView1.setVisibility(View.GONE);
+                }else{
+                    textView1.setText(loadingBean.getText());
+                    textView1.setTextColor(loadingBean.getTextColor() == 0 ? Color.parseColor("#FFFFFF") : loadingBean.getTextColor());
+                }
+                break;
+            case DialogType.DIALOG_TYPE_1:
+
+                //设置对话框背景灰暗程度
+                alertDialog.getWindow().setDimAmount(0.5f);
+
+                view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_loading2_view, null);
+                LinearLayout loading2_rootview = view.findViewById(R.id.ll_alldialog_loading2);
+                GradientDrawable gradientDrawable2 = (GradientDrawable) loading2_rootview.getBackground();
+                gradientDrawable2.setColor(loadingBean.getBgColor() == 0 ? Color.parseColor("#FFFFFF") : loadingBean.getBgColor());
+                gradientDrawable2.setCornerRadius(loadingBean.getRadii());
+                TextView textView2 = view.findViewById(R.id.loading_msg);
+                if(TextUtils.isEmpty(loadingBean.getText())){
+                    textView2.setVisibility(View.GONE);
+                }else{
+                    textView2.setText(loadingBean.getText());
+                    textView2.setTextColor(loadingBean.getTextColor() == 0 ? Color.parseColor("#7700CE") : loadingBean.getTextColor());
+                }
+
+                break;
         }
+
         rootView.addView(view);
 
         return AllDialogHolder.instance;

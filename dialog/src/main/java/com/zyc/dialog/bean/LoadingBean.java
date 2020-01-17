@@ -2,6 +2,9 @@ package com.zyc.dialog.bean;
 
 public class LoadingBean {
 
+    //加载对话框类型
+    private byte type;
+
     //背景颜色
     private int bgColor;
 
@@ -21,6 +24,14 @@ public class LoadingBean {
         this.text = text;
         this.textColor = textColor;
         this.radii = radii;
+    }
+
+    public LoadingBean(int bgColor, String text, int textColor, int radii, byte type) {
+        this.bgColor = bgColor;
+        this.text = text;
+        this.textColor = textColor;
+        this.radii = radii;
+        this.type = type;
     }
 
     public int getBgColor() {
@@ -53,5 +64,13 @@ public class LoadingBean {
 
     public void setRadii(int radii) {
         this.radii = radii;
+    }
+
+    public byte getType() {
+        return type;
+    }
+
+    public void setType(byte type) {
+        this.type = type;
     }
 }

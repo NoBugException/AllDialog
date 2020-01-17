@@ -27,13 +27,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:text="AlertDialog默认多选样式" />
+        android:text="AlertDialog加载进度2" />
 
     <Button
         android:id="@+id/button_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
-        android:text="普通自定义布局" />
+        android:text="AlertDialog加载进度3" />
 
 </LinearLayout>

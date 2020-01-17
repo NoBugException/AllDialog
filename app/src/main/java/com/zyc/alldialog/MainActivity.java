@@ -69,15 +69,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.button_3:
 
-//                final String[] items_3 =new String[]{"鸭血粉丝","大煮干丝","西红柿鸡蛋汤","王八汤"};
-//                boolean[] checkedItems = new boolean[]{false,false,false,false};
-//                AllDialog.with(this)
-//                        .buildDialog("请问您要点什么", "")
-//                        .setNegativeButton("取消", null)
-//                        .setCancelable(false)
-//                        .setMultiChoiceItems(items_3, checkedItems, null)
-//                        .create()
-//                        .show();
+                LoadingBean loadingBean3 = new LoadingBean();
+                loadingBean3.setRadii(6);
+                loadingBean3.setText("请稍等...");
+                loadingBean3.setTextColor(Color.parseColor("#7700CE"));
+                loadingBean3.setType((byte) 1);
+
+                AllDialog.with(this)
+                        .buildLoadingDialog(loadingBean3, null, null)
+                        //.setWidth(150)//对话框宽度，单位为dp，默认是屏幕宽度的五分之四
+                        //.setHeight(150)//对话框高度，单位为dp
+                        .show();
 
                 break;
 
