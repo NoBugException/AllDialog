@@ -1,11 +1,27 @@
 # v1.0.1
 
-提交内容：AlertDialog基本封装
-（1）支持设置AlertDialog的宽度；
-（2）添加布局；
-（3）设置主题；
-（4）设置cancelable值，点击外围是否关闭对话框；
-（5）设置OnDismissListener和OnCancelListener监听；
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.0.1'
+    }
+    
+
+提交内容：AlertDialog基本封装：
+
+
+    （1）支持设置AlertDialog的宽度；
+    （2）添加布局；
+    （3）设置主题；
+    （4）设置cancelable值，点击外围是否关闭对话框；
+    （5）设置OnDismissListener和OnCancelListener监听；
 
 代码示例：
 
@@ -24,3 +40,5 @@
                         .show();
                         
 效果如下：
+
+![image_1.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_1.png)
