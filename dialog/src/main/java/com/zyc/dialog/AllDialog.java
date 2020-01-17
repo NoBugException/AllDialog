@@ -7,7 +7,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,8 +19,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.zyc.dialog.bean.LoadingBean;
 import com.zyc.dialog.bean.NormalBean;
-
-import java.util.jar.Attributes;
+import com.zyc.dialog.listener.ButtonListener;
 
 public class AllDialog{
 
@@ -158,7 +156,7 @@ public class AllDialog{
      * 建立一个普通对话框
      * @param normalBean
      */
-    public AllDialog buildNormalDialog(NormalBean normalBean, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
+    public AllDialog buildNormalDialog(NormalBean normalBean, final ButtonListener listener, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
         builder = createBuilder(R.style.style_all_dialog);
         builder.setCancelable(true);
 
@@ -193,8 +191,20 @@ public class AllDialog{
         messageView.setTextSize(normalBean.getMessageTextSize() == 0 ? 14 : normalBean.getMessageTextSize());
         Button alldialog_normal_ok_btn = view.findViewById(R.id.alldialog_normal_ok_btn);
         alldialog_normal_ok_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
+        alldialog_normal_ok_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.confirm();
+            }
+        });
         Button alldialog_normal_cancel_btn = view.findViewById(R.id.alldialog_normal_cancel_btn);
         alldialog_normal_cancel_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
+        alldialog_normal_cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.cancel();
+            }
+        });
 
 
         rootView.addView(view);

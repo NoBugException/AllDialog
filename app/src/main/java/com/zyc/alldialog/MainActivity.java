@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.zyc.dialog.AllDialog;
 import com.zyc.dialog.bean.LoadingBean;
 import com.zyc.dialog.bean.NormalBean;
+import com.zyc.dialog.listener.ButtonListener;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -129,7 +130,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 normalBean.setMessageTextSize(14);
                 normalBean.setButtonTextSize(14);
                 AllDialog.with(this)
-                        .buildNormalDialog(normalBean,null, null)
+                        .buildNormalDialog(normalBean, new ButtonListener() {
+                            @Override
+                            public void confirm() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+
+                            @Override
+                            public void cancel() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+                        }, null, null)
                         .show();
 
                 break;
