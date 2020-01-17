@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--点击确认按钮时的背景 -->
+    <color name="all_dialog_ok_press_bg">#cccccc</color>
+    <!--点击取消按钮时的背景 -->
+    <color name="all_dialog_cancel_press_bg">#eeeeee</color>
+
+    <color name="test">#1233F0</color>
+</resources>

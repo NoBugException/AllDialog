@@ -34,5 +34,5 @@ android {
         androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
         implementation project(path: ':dialog')
-//        implementation 'com.github.NoBugException:AllDialog:1.1.1'
+//        implementation 'com.github.NoBugException:AllDialog:1.2.2'
     }

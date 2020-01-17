@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import com.zyc.dialog.bean.LoadingBean;
+import com.zyc.dialog.bean.NormalBean;
 
 import java.util.jar.Attributes;
 
@@ -146,6 +148,54 @@ public class AllDialog{
 
                 break;
         }
+
+        rootView.addView(view);
+
+        return AllDialogHolder.instance;
+    }
+
+    /**
+     * 建立一个普通对话框
+     * @param normalBean
+     */
+    public AllDialog buildNormalDialog(NormalBean normalBean, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
+        builder = createBuilder(R.style.style_all_dialog);
+        builder.setCancelable(true);
+
+        builder.setOnCancelListener(onCancelListener);
+        builder.setOnDismissListener(onDismissListener);
+
+        alertDialog = createDialog(builder);
+
+        if(alertDialog == null){
+            throw new RuntimeException("dialog is not create!");
+        }
+
+        if(rootView == null){
+            throw new RuntimeException("rootView is null!");
+        }
+
+        if(mContext == null){
+            throw new RuntimeException("context is null!");
+        }
+
+        //设置根容器为透明
+        rootView.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+        View view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_normal1_view, null);
+        TextView titleView = view.findViewById(R.id.tv_title);
+        titleView.setText(normalBean.getTitle());
+        titleView.setTextColor(normalBean.getTitleColor() == 0 ? Color.BLACK : normalBean.getTitleColor());
+        titleView.setTextSize(normalBean.getTitleTextSize() == 0 ? 17 : normalBean.getTitleTextSize());
+        TextView messageView = view.findViewById(R.id.tv_msg);
+        messageView.setText(normalBean.getMessage());
+        messageView.setTextColor(normalBean.getMessageColor() == 0 ? Color.BLACK : normalBean.getMessageColor());
+        messageView.setTextSize(normalBean.getMessageTextSize() == 0 ? 14 : normalBean.getMessageTextSize());
+        Button alldialog_normal_ok_btn = view.findViewById(R.id.alldialog_normal_ok_btn);
+        alldialog_normal_ok_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
+        Button alldialog_normal_cancel_btn = view.findViewById(R.id.alldialog_normal_cancel_btn);
+        alldialog_normal_cancel_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
+
 
         rootView.addView(view);
 
