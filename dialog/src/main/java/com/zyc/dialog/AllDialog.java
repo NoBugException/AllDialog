@@ -7,6 +7,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -207,6 +208,47 @@ public class AllDialog{
         });
 
 
+        rootView.addView(view);
+
+        return AllDialogHolder.instance;
+    }
+
+    /**
+     * 建立一个从底部弹出的对话框
+     * @param normalBean
+     */
+    public AllDialog buildBottomDialog(NormalBean normalBean, final ButtonListener listener, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
+        builder = createBuilder(R.style.style_all_dialog);
+        builder.setCancelable(true);
+
+        builder.setOnCancelListener(onCancelListener);
+        builder.setOnDismissListener(onDismissListener);
+
+        alertDialog = createDialog(builder);
+
+        if(alertDialog == null){
+            throw new RuntimeException("dialog is not create!");
+        }
+
+        if(rootView == null){
+            throw new RuntimeException("rootView is null!");
+        }
+
+        if(mContext == null){
+            throw new RuntimeException("context is null!");
+        }
+
+        //设置根容器为透明
+        rootView.setBackgroundColor(Color.parseColor("#00ffffff"));
+
+        View view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_bottom_view, null);
+
+        WindowManager.LayoutParams params = alertDialog.getWindow().getAttributes();
+        //方位
+        params.gravity = Gravity.BOTTOM;
+        alertDialog.getWindow().setAttributes(params);
+        //添加动画
+        alertDialog.getWindow().setWindowAnimations(R.style.alldialog_bottom_animation);
         rootView.addView(view);
 
         return AllDialogHolder.instance;

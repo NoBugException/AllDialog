@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/alldialog_loading2_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:text="中国大陆"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:textStyle="bold"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <ScrollView
+            android:id="@+id/sv"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:id="@+id/ll_container"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_msg"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
+                    android:text="西方学者曾多次断言：中国遇到的一个长期问题就是养活不了占世界近20%的人口事实证明新中国成立以来勤劳的中国人"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:minHeight="60dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/alldialog_normal_cancel_btn"
+        android:text="取消"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:textStyle="normal"
+        android:textSize="14sp"
+        android:textColor="#cccccc"
+        android:background="@drawable/alldialog_loading2_bg"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:minHeight="48dp"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</LinearLayout>

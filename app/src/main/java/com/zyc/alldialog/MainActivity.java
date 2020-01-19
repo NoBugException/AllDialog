@@ -21,7 +21,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button button_1, button_2, button_3, button_4, button_5;
+    private Button button_1, button_2, button_3, button_4, button_5, button_6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_4.setOnClickListener(this);
         button_5 = findViewById(R.id.button_5);
         button_5.setOnClickListener(this);
+        button_6 = findViewById(R.id.button_6);
+        button_6.setOnClickListener(this);
     }
 
     @Override
@@ -131,6 +133,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 normalBean.setButtonTextSize(14);
                 AllDialog.with(this)
                         .buildNormalDialog(normalBean, new ButtonListener() {
+                            @Override
+                            public void confirm() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+
+                            @Override
+                            public void cancel() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+                        }, null, null)
+                        .show();
+
+                break;
+
+            case R.id.button_6:
+
+                NormalBean normalBean1 = new NormalBean();
+                normalBean1.setTitle("中国大陆");
+                normalBean1.setMessage("西方学者曾多次断言：中国遇到的一个长期问题就是养活不了占世界近20%的人口事实证明新中国成立以来勤劳的中国人");
+                normalBean1.setTitleColor(Color.parseColor("#1233F0"));
+                normalBean1.setMessageColor(Color.parseColor("#2C9AA8"));
+                normalBean1.setTitleTextSize(17);
+                normalBean1.setMessageTextSize(14);
+                normalBean1.setButtonTextSize(14);
+
+                AllDialog.with(this)
+                        .buildBottomDialog(normalBean1, new ButtonListener() {
                             @Override
                             public void confirm() {
                                 AllDialog.with(MainActivity.this).dismiss();

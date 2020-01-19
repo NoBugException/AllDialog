@@ -1,5 +1,6 @@
 <resources>
 
+    <!--AllDialog基本样式-->
     <style name="style_all_dialog" parent="android:Theme.Dialog">
         <item name="android:windowFrame">@null</item><!-- 边框 -->
         <item name="android:windowIsFloating">true</item><!-- 是否悬浮在activity上 -->
@@ -9,6 +10,12 @@
         <item name="android:backgroundDimEnabled">true</item><!-- 是否允许背景变暗，默认为true -->
         <item name="android:backgroundDimAmount">0.5</item><!-- 背景变暗程度，0：不变暗 1：完全变暗 -->
         <item name="android:windowContentOverlay">@null</item><!-- 对话框是否有遮盖 -->
+    </style>
+
+    <!--底部对话框动画-->
+    <style name="alldialog_bottom_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/alldialog_bottom_enter</item>  <!--进入时的动画-->
+        <item name="android:windowExitAnimation">@anim/alldialog_bottom__exit</item>    <!--退出时的动画-->
     </style>
 
 </resources>
