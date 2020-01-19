@@ -240,17 +240,10 @@
 
 代码示例：
 
-                NormalBean normalBean1 = new NormalBean();
-                normalBean1.setTitle("中国大陆");
-                normalBean1.setMessage("西方学者曾多次断言：中国遇到的一个长期问题就是养活不了占世界近20%的人口事实证明新中国成立以来勤劳的中国人");
-                normalBean1.setTitleColor(Color.parseColor("#1233F0"));
-                normalBean1.setMessageColor(Color.parseColor("#2C9AA8"));
-                normalBean1.setTitleTextSize(17);
-                normalBean1.setMessageTextSize(14);
-                normalBean1.setButtonTextSize(14);
+
 
                 AllDialog.with(this)
-                        .buildBottomDialog(normalBean1, new ButtonListener() {
+                        .buildBottomDialog(new ButtonListener() {
                             @Override
                             public void confirm() {
                                 AllDialog.with(MainActivity.this).dismiss();
