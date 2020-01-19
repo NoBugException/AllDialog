@@ -263,4 +263,44 @@
 ![image_5.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_5.gif)
 
 
+# v1.5.3
+
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.5.3'
+    }
+    
+
+
+
+新增透明背景的关闭按钮的对话框
+
+    该功能就不做过多的参数封装以及优化了，这里直接给出效果给大家参考。
+
+
+
+代码示例：
+
+
+
+                NormalBean normalBean2 = new NormalBean();
+                normalBean2.setType((byte) 2);
+                AllDialog.with(this)
+                        .buildNormalDialog(normalBean2, null, null, null)
+                        .show();
+
+
+效果如下：
+
+![image_6.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_6.png)
+
+
 
