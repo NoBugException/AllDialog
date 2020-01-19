@@ -186,16 +186,17 @@
 
 代码示例：
 
-                NormalBean normalBean = new NormalBean();
-                normalBean.setTitle("中国大陆");
-                normalBean.setMessage("西方学者曾多次断言：中国遇到的一个长期问题就是养活不了占世界近20%的人口事实证明新中国成立以来勤劳的中国人");
-                normalBean.setTitleColor(Color.parseColor("#1233F0"));
-                normalBean.setMessageColor(Color.parseColor("#2C9AA8"));
-                normalBean.setTitleTextSize(17);
-                normalBean.setMessageTextSize(14);
-                normalBean.setButtonTextSize(14);
+                NormalBean normalBean1 = new NormalBean();
+                normalBean1.setTitle("中国大陆");
+                normalBean1.setMessage("西方学者曾多次断言：中国遇到的一个长期问题就是养活不了占世界近20%的人口事实证明新中国成立以来勤劳的中国人");
+                normalBean1.setTitleColor(Color.parseColor("#1233F0"));
+                normalBean1.setMessageColor(Color.parseColor("#2C9AA8"));
+                normalBean1.setTitleTextSize(17);
+                normalBean1.setMessageTextSize(14);
+                normalBean1.setButtonTextSize(14);
+                normalBean1.setType((byte) 1);
                 AllDialog.with(this)
-                        .buildNormalDialog(normalBean, new ButtonListener() {
+                        .buildNormalDialog(normalBean1, new ButtonListener() {
                             @Override
                             public void confirm() {
                                 AllDialog.with(MainActivity.this).dismiss();
@@ -212,5 +213,54 @@
 效果如下：
 
 ![image_4.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_4.gif)
+
+
+# v1.4.3
+
+引用：
+
+
+    allprojects {
+        repositories {
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
+    
+    dependencies {
+        implementation 'com.github.NoBugException:AllDialog:1.4.3'
+    }
+    
+
+
+
+新增一个底部弹出的对话框
+
+    该功能就不做过多的参数封装以及优化了，这里直接给出效果给大家参考。
+
+
+
+代码示例：
+
+
+
+                AllDialog.with(this)
+                        .buildBottomDialog(new ButtonListener() {
+                            @Override
+                            public void confirm() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+
+                            @Override
+                            public void cancel() {
+                                AllDialog.with(MainActivity.this).dismiss();
+                            }
+                        }, null, null)
+                        .show();
+
+
+效果如下：
+
+![image_5.png](https://github.com/NoBugException/AllDialog/blob/master/image/image_5.gif)
+
 
 
