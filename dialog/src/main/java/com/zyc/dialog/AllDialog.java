@@ -181,31 +181,44 @@ public class AllDialog{
         //设置根容器为透明
         rootView.setBackgroundColor(Color.parseColor("#00ffffff"));
 
-        View view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_normal1_view, null);
-        TextView titleView = view.findViewById(R.id.tv_title);
-        titleView.setText(normalBean.getTitle());
-        titleView.setTextColor(normalBean.getTitleColor() == 0 ? Color.BLACK : normalBean.getTitleColor());
-        titleView.setTextSize(normalBean.getTitleTextSize() == 0 ? 17 : normalBean.getTitleTextSize());
-        TextView messageView = view.findViewById(R.id.tv_msg);
-        messageView.setText(normalBean.getMessage());
-        messageView.setTextColor(normalBean.getMessageColor() == 0 ? Color.BLACK : normalBean.getMessageColor());
-        messageView.setTextSize(normalBean.getMessageTextSize() == 0 ? 14 : normalBean.getMessageTextSize());
-        Button alldialog_normal_ok_btn = view.findViewById(R.id.alldialog_normal_ok_btn);
-        alldialog_normal_ok_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
-        alldialog_normal_ok_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.confirm();
-            }
-        });
-        Button alldialog_normal_cancel_btn = view.findViewById(R.id.alldialog_normal_cancel_btn);
-        alldialog_normal_cancel_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
-        alldialog_normal_cancel_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.cancel();
-            }
-        });
+        View view = null;
+
+        if(normalBean.getType() == 1){
+            view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_normal1_view, null);
+            TextView titleView = view.findViewById(R.id.tv_title);
+            titleView.setText(normalBean.getTitle());
+            titleView.setTextColor(normalBean.getTitleColor() == 0 ? Color.BLACK : normalBean.getTitleColor());
+            titleView.setTextSize(normalBean.getTitleTextSize() == 0 ? 17 : normalBean.getTitleTextSize());
+            TextView messageView = view.findViewById(R.id.tv_msg);
+            messageView.setText(normalBean.getMessage());
+            messageView.setTextColor(normalBean.getMessageColor() == 0 ? Color.BLACK : normalBean.getMessageColor());
+            messageView.setTextSize(normalBean.getMessageTextSize() == 0 ? 14 : normalBean.getMessageTextSize());
+            Button alldialog_normal_ok_btn = view.findViewById(R.id.alldialog_normal_ok_btn);
+            alldialog_normal_ok_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
+            alldialog_normal_ok_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.confirm();
+                }
+            });
+            Button alldialog_normal_cancel_btn = view.findViewById(R.id.alldialog_normal_cancel_btn);
+            alldialog_normal_cancel_btn.setTextSize(normalBean.getButtonTextSize() == 0 ? 14 : normalBean.getButtonTextSize());
+            alldialog_normal_cancel_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.cancel();
+                }
+            });
+
+        }else if(normalBean.getType() == 2){
+            view =  LayoutInflater.from(mContext).inflate(R.layout.alldialog_normal2_view, null);
+            WindowManager.LayoutParams params = alertDialog.getWindow().getAttributes();
+            //方位
+            params.gravity = Gravity.BOTTOM;
+            alertDialog.getWindow().setAttributes(params);
+            //添加动画
+            alertDialog.getWindow().setWindowAnimations(R.style.alldialog_bottom_animation);
+        }
 
 
         rootView.addView(view);
@@ -215,9 +228,8 @@ public class AllDialog{
 
     /**
      * 建立一个从底部弹出的对话框
-     * @param normalBean
      */
-    public AllDialog buildBottomDialog(NormalBean normalBean, final ButtonListener listener, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
+    public AllDialog buildBottomDialog(final ButtonListener listener, DialogInterface.OnDismissListener onDismissListener, DialogInterface.OnCancelListener onCancelListener){
         builder = createBuilder(R.style.style_all_dialog);
         builder.setCancelable(true);
 

@@ -49,4 +49,11 @@
         android:textSize="14sp"
         android:text="底部弹出的对话框" />
 
+    <Button
+        android:id="@+id/button_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="背景透明的关闭按钮" />
+
 </LinearLayout>

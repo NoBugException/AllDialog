@@ -23,10 +23,13 @@ public class NormalBean {
     //按钮文字大小
     private float buttonTextSize;
 
+    //对话框类型
+    private byte type;
+
     public NormalBean() {
     }
 
-    public NormalBean(String title, String message, int titleColor, int messageColor, float titleTextSize, float messageTextSize, float buttonTextSize) {
+    public NormalBean(String title, String message, int titleColor, int messageColor, float titleTextSize, float messageTextSize, float buttonTextSize, byte type) {
         this.title = title;
         this.message = message;
         this.titleColor = titleColor;
@@ -34,6 +37,7 @@ public class NormalBean {
         this.titleTextSize = titleTextSize;
         this.messageTextSize = messageTextSize;
         this.buttonTextSize = buttonTextSize;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -90,5 +94,13 @@ public class NormalBean {
 
     public void setButtonTextSize(float buttonTextSize) {
         this.buttonTextSize = buttonTextSize;
+    }
+
+    public byte getType() {
+        return type;
+    }
+
+    public void setType(byte type) {
+        this.type = type;
     }
 }
